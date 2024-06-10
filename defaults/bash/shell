@@ -4,6 +4,9 @@ HISTCONTROL=ignoreboth
 HISTSIZE=32768
 HISTFILESIZE="${HISTSIZE}"
 
+# share history across sessions
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
 # Autocompletion
 source /usr/share/bash-completion/bash_completion
 
