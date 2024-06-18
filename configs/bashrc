@@ -2,3 +2,15 @@ source ~/.local/share/omakub/defaults/bash/rc
 
 # Editor used by CLI
 export EDITOR="nvim"
+
+alias java8="rm /softwares/java; ln -s /softwares/java-1.8 /softwares/java"
+alias java11="rm /softwares/java; ln -s /softwares/java-11 /softwares/java"
+alias java15="rm /softwares/java; ln -s /softwares/java-15 /softwares/java"
+alias java17="rm /softwares/java; ln -s /softwares/java-17 /softwares/java"
+alias java21="rm /softwares/java; ln -s /softwares/java-21 /softwares/java"
+alias mvnst="mvn -DskipTests -Dpmd.skip=true -Dfindbugs.skip=true -Dcheckstyle.skip=true -Dspotbugs.skip=true clean install"
+alias sos="java -jar /work/sq/sq-on-steroids/cli/target/sq-on-steroids-*-SNAPSHOT.jar"
+alias p="cat /home/mryan/.ssh/.sshpass | tr -d '\n' | xsel -ib"
+source /usr/local/bin/fuzzycd
+#eval "$(cd -c)"
+xmodmap /home/mryan/.Xmodmap

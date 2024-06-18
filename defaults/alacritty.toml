@@ -14,3 +14,4 @@ opacity = 0.97
 bindings = [
 { key = "F11", action = "ToggleFullscreen" }
 ]
+

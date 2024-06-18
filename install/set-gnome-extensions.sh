@@ -4,7 +4,7 @@ pipx install gnome-extensions-cli --system-site-packages
 # Turn off default Ubuntu extensions
 gnome-extensions disable tiling-assistant@ubuntu.com
 gnome-extensions disable ubuntu-appindicators@ubuntu.com
-#gnome-extensions disable ubuntu-dock@ubuntu.com
+gnome-extensions disable ubuntu-dock@ubuntu.com
 gnome-extensions disable ding@rastersoft.com
 
 # Pause to assure user is ready to accept confirmations
@@ -14,6 +14,7 @@ gum confirm "To install Gnome extensions, you need to accept four confirmations.
 #gext install tactile@lundal.io
 gext install just-perfection-desktop@just-perfection
 gext install blur-my-shell@aunetx
+gext install dash-to-dock@
 #gext install space-bar@luchrioh
 
 # Compile gsettings schemas in order to be able to set them
