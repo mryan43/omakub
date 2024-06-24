@@ -11,6 +11,26 @@ alias java21="rm /softwares/java; ln -s /softwares/java-21 /softwares/java"
 alias mvnst="mvn -DskipTests -Dpmd.skip=true -Dfindbugs.skip=true -Dcheckstyle.skip=true -Dspotbugs.skip=true clean install"
 alias sos="java -jar /work/sq/sq-on-steroids/cli/target/sq-on-steroids-*-SNAPSHOT.jar"
 alias p="cat /home/mryan/.ssh/.sshpass | tr -d '\n' | xsel -ib"
-source /usr/local/bin/fuzzycd
+#source /usr/local/bin/fuzzycd
+eval "$(zoxide init --cmd cd bash)"
 #eval "$(cd -c)"
+
+alias sss='function _connect(){
+    SSH_COMMON_OPTS="-oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-dss"
+    # Check remote OS
+    OS=$(sshpass -f $HOME/.ssh/.sshpass ssh $SSH_COMMON_OPTS $USER@"$1" uname);
+    if [ "$OS" == SunOS ]; then
+        echo "uploading profile using scp"
+        # If Solaris, use scp
+        sshpass -f $HOME/.ssh/.sshpass scp $SSH_COMMON_OPTS -rp $HOME/profile/. $USER@"$1":~/;
+    elif [ "$OS" == Linux ]; then
+        echo "uploading profile using rsync"
+        # If Ubuntu, use rsync
+        sshpass -f $HOME/.ssh/.sshpass rsync -rtzL $HOME/profile/. $USER@"$1":~/;
+    fi
+    sshpass -f $HOME/.ssh/.sshpass ssh $SSH_COMMON_OPTS -oStrictHostKeyChecking=no $USER@"$1";
+};_connect'
+
 xmodmap /home/mryan/.Xmodmap
+source ~/.local/share/blesh/ble.sh
+source /etc/bash_completion.d/sss

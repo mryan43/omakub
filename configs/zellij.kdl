@@ -6,3 +6,10 @@ ui {
         hide_session_name true
     }
 }
+
+keybinds {
+    normal {
+        bind "Ctrl o" { HalfPageScrollUp; }
+        bind "Ctrl k" { HalfPageScrollDown; }
+    }
+}

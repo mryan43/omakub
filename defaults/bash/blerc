@@ -1,0 +1,17 @@
+bleopt complete_auto_complete=
+bleopt highlight_syntax=
+bleopt history_share=
+bleopt history_erasedups_limit=
+bleopt menu_align_max=100
+
+ble-face auto_complete='fg=240,underline,italic'
+ble-face -s filename_directory fg=4
+ble-face -s filename_link fg=6
+ble-face -s filename_orphan fg=9
+ble-face -s filename_executable fg=2
+ble-face -s filename_other fg=15
+ble-face -s filename_ls_colors fg=15
+ble-face -s region_insert bg=8
+
+ble-bind -m isearch -f 'RET' isearch/accept-line
+ble-bind -m isearch -f 'C-m' isearch/accept-line
